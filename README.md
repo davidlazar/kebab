@@ -59,48 +59,48 @@ using the `archive/tar` and `compress/gzip` packages instead.
 1. Create an Amazon S3 bucket to store your backups and a JSON file that
 identifies this bucket:
 
-    $ cat s3bucket.json
-    {
-        "Service": {
-            "Region":"us-east-1",
-            "AccessKey":"XYZ...",
-            "AccessKeyId":"ABC..."
-        },
-        "Bucket":"kebab_482731..."
-    }
+        $ cat s3bucket.json
+        {
+            "Service": {
+                "Region":"us-east-1",
+                "AccessKey":"XYZ...",
+                "AccessKeyId":"ABC..."
+            },
+            "Bucket":"kebab_482731..."
+        }
 
 2. Install Kebab:
 
-    $ export GOPATH=...
-    $ go install github.com/davidlazar/kebab
+        $ export GOPATH=...
+        $ go install github.com/davidlazar/kebab
 
 3. Run tests:
 
-    $ go test -v -s3 s3bucket.json github.com/davidlazar/kebab/...
-    $ go test -v github.com/davidlazar/go-crypto/...
+        $ go test -v -s3 s3bucket.json github.com/davidlazar/kebab/...
+        $ go test -v github.com/davidlazar/go-crypto/...
 
 4. Create a key file with a strong passphrase that you can memorize:
 
-    $ kebab -keygen -key kebab.key
-    Passphrase: ...
+        $ kebab -keygen -key kebab.key
+        Passphrase: ...
 
 5. With a pen and paper, make physical copies of your key file and store
 them somewhere safe:
 
-    $ cat kebab.key
-    wab77 b8fxk waqkz
-    q0j9e 8jxqx vcc94
-    64bb5 egb1d rpggb
-    dbg4v 86ygw f4fzg
+        $ cat kebab.key
+        wab77 b8fxk waqkz
+        q0j9e 8jxqx vcc94
+        64bb5 egb1d rpggb
+        dbg4v 86ygw f4fzg
 
 6. Create some backups:
 
-    $ kebab -bucket s3bucket.json -key kebab.key -put email-$(date "+%Y-%m-%d") email \
-    -putfrom docs-$(date "+%Y-%m-%d") ~/sensitive docs
+        $ kebab -bucket s3bucket.json -key kebab.key -put email-$(date "+%Y-%m-%d") email \
+        -putfrom docs-$(date "+%Y-%m-%d") ~/sensitive docs
 
 7. Restore backups:
 
-    $ kebab -bucket s3bucket.json -key kebab.key -get email-2015-03-14 -get ...
+        $ kebab -bucket s3bucket.json -key kebab.key -get email-2015-03-14 -get ...
 
 
 #### Copyright
