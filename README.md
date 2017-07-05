@@ -4,9 +4,8 @@ Kebab is a backup tool that prioritizes confidentiality, integrity, and
 availability above all else.  Kebab creates full backups of your files that
 are compressed and encrypted and then stored on Amazon S3 or in another
 directory.  To reduce the likelihood of bugs, Kebab is a small amount of
-code, forgoing features like deduplication and incremental backups.
-
-Kebab serves as an alternative to Tarsnap, offering the following advantages:
+code, forgoing features like deduplication and incremental backups.  Kebab
+features:
 
 * **Tiny codebase.**
 Kebab is less than 2000 lines of code.  This makes Kebab easier to audit
