@@ -71,7 +71,7 @@ identifies this bucket:
 2. Install Kebab:
 
         $ export GOPATH=...
-        $ go install github.com/davidlazar/kebab
+        $ go get github.com/davidlazar/kebab/...
 
 3. Run tests:
 
