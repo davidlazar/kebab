@@ -62,7 +62,7 @@ func (b *fileBucket) Destroy() error {
 	}
 
 	if filepath.Dir(abs) == "/" {
-		return fmt.Errorf("refusing to destroy top-level directory %q")
+		return fmt.Errorf("refusing to destroy top-level directory %q", abs)
 	}
 
 	if err := os.RemoveAll(b.root); err != nil {
